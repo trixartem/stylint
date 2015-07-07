@@ -10,7 +10,6 @@ var init = function() {
 	var watch = v.indexOf( '--watch' ) !== -1 || v.indexOf( '-w' ) !== -1;
 	var help = v.indexOf( '--help' ) !== -1 || v.indexOf( '-h' ) !== -1;
 	var version = v.indexOf( '--version' ) !== -1 || v.indexOf( '-v' ) !== -1;
-
 	// look for flags by default
 	// then look for .stylintrc in project dir as fallback
 	// else just use default config

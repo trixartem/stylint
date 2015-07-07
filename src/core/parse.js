@@ -34,7 +34,6 @@ var parse = function( err, res ) {
 
 		// save previous file
 		this.cache.prevFile = this.cache.file;
-
 		// if on the last file, call the done function to output success or error msg
 		if ( this.cache.fileNo === res.length - 1 ) {
 			return this.reporter( '', 'done' );

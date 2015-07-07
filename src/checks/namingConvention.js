@@ -22,7 +22,6 @@ var namingConvention = function( line ) {
 	if ( this.config.namingConventionStrict === true ) {
 		doWeTestRe = /^[$#.{:]+/m; // test a wider range if strict is true
 	}
-
 	// only run checks if on a class, id, or variable
 	if ( doWeTestRe.test( arr[0] ) && arr[0].indexOf( '::' ) === -1 ) {
 		// if all lowercase we do nothing, if -, _ or uppercase found we check convention
@@ -60,6 +59,7 @@ var namingConvention = function( line ) {
 			}
 			// $var__element
 			else if ( this.state.conf === 'BEM' ) {
+				console.log(arr);
 				// if A-Z or not following BEM specification
 				if ( upperRe.test( arr[0] ) || !bemRe.test( arr[0] ) ) {
 					badConvention = true;

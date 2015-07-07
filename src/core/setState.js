@@ -11,9 +11,8 @@ var setState = function() {
 	var stateM = Object.getPrototypeOf( this ).stateMethods;
 
 	this.state.context = this.setContext( this.cache.line );
-
 	// if empty line
-	if ( emptyLineRe.test( line ) ) {
+	if ( !emptyLineRe.test( line ) ) {
 		this.cache.sortOrderCache = [];
 		return;
 	}

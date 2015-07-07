@@ -1,8 +1,7 @@
 'use strict';
 
 // we only want to check semicolons on properties/values
-var ignoreRe = /[&$.#>]|(if)|(for)|(else)|(@block)|=$|=\s/gm;
-
+var ignoreRe = /(^[\s]*[.])|[&#>{}]|(if)|(for)|(else)|(@block)|(body)|(html)=$|=\s/gm;
 
 /**
  * @description check that selector properties are sorted accordingly
@@ -11,7 +10,8 @@ var ignoreRe = /[&$.#>]|(if)|(for)|(else)|(@block)|=$|=\s/gm;
  */
 var semicolons = function( line ) {
 	if ( ignoreRe.test( line ) ) { return; }
-
+	//FIXME убрать второе условие и понять почему не все чистится
+	if ( ignoreRe.test( line ) ) { return; }
 	var semicolon;
 
 	if ( this.state.conf === 'never' && line.indexOf( ';' ) !== -1 ) {

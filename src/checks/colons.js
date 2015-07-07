@@ -2,7 +2,7 @@
 
 var validJSON = require( '../data/valid.json' );
 // we only want to check colons on properties/values
-var ignoreRe = /[&$.=#>]|\(|if|for|else|@block|@media|,$/gm;
+var ignoreRe = /[&#>={}]|\(|if|for|else|@block|@media|,$/gm;
 
 
 /**
@@ -12,15 +12,17 @@ var ignoreRe = /[&$.=#>]|\(|if|for|else|@block|@media|,$/gm;
  */
 var colons = function( line ) {
 	if ( ignoreRe.test( line ) || this.state.context === 0 ) { return; }
+	//FIXME убрать второе условие и понять почему не все чистится
+	if ( ignoreRe.test( line ) || this.state.context === 0 ) { return; }
 
 	var colon;
 	var hasPseudo = false;
 	// var validCSS = false;
-	var arr = line.split( ' ' );
+	var arr = line.split( '' );
 
 	if ( this.state.conf === 'always' &&
 		arr.length > 1 &&
-		arr[0].indexOf( ':' ) === -1 ) {
+		arr.indexOf( ':' ) === -1 ) {
 		colon = false;
 	}
 	// : is allowed in hashes

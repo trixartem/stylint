@@ -14,7 +14,6 @@ var none = function( line ) {
 		line.indexOf( 'outline' ) === -1 ) {
 		return;
 	}
-
 	var noneFound = false;
 
 	// return true if border|outline is followed by a 0
